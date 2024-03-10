@@ -1,10 +1,7 @@
 import React, { useState, useEffect, FC } from 'react';
-
-//libraries
 import { Input } from 'antd';
 import { FieldInputProps, FormikProps } from "formik";
 
-//utils
 import { formatAmount } from "@/utils/formatAmount";
 
 interface AmountInputProps {
@@ -46,18 +43,29 @@ export const AmountInput:FC<AmountInputProps> = ({
                 setDisplayValue(formatAmount(0, language));
             }
         } catch (error) {
-            console.error("Error formatting value:", error);
             form.setFieldValue(field.name, 0);
             setDisplayValue('');
         }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setDisplayValue(e.target.value);
+        const input = e.target.value;
+        // This pattern allows numbers, a single dot for decimal, and minus sign for negative numbers
+        const validPattern = /^-?\d*\.?\d*$/;
+
+        // Check if the current input is valid
+        if (validPattern.test(input)) {
+            setDisplayValue(input);
+        } else if (!input) {
+            // Allows clearing the input
+            setDisplayValue('');
+        }
+        // If the input is not valid, don't update the displayValue, effectively ignoring the input
     };
 
     return (
         <Input
+
             {...props}
             value={displayValue}
             onFocus={handleFocus}

@@ -9,74 +9,20 @@ body {
   padding: 0;
   min-height: 100vh; /* Это важно: делает высоту body равной высоте видимого окна браузера */
   display: flex;
+  overflow-x: hidden;
   flex-direction: column;
   font-family: $font-family-montserrat;
   font-size: 16px;
   background-color: $color-black;
 }
 
-.link {
-  position: relative;
-  white-space: nowrap;
-  font-weight: 600;
-  background: linear-gradient(90deg, #9890E3 0%, #B1F4CF 100%) !important;
-  -webkit-background-clip: text!important;
-  background-clip: text!important;
-  color: transparent; /* Make the text color transparent */
-  font-family: $font-family-nunito;
-  &:before {
-    content: '';
-    position: absolute;
-    background: linear-gradient(90deg, #9890E3 0%, #B1F4CF 100%);
-    width: 100%;
-    height: .5px;
-    left: 0;
-    bottom: 3px;
-  }
-  &:hover{
-    color: transparent; /* Make the text color transparent */
-  }
-}
-
-
-
-
-.autofill-deep-black{
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px $color-deep-black inset ;
-    -webkit-text-fill-color: white ;
-  }
-}
-
-.autofill-black{
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px $color-black inset ;
-    -webkit-text-fill-color: white ;
-  }
-}
-
-
-/* This styles the track of the scrollbar */
-body::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  background-color: #000000;
-}
-
-/* This styles the handle of the scrollbar */
-body::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-  background-color: #989292;
-}
-
-/* This sets the width of the scrollbar */
-body::-webkit-scrollbar {
-  width: 6px;
-  background-color: #F5F5F5;
+.container{
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1020px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
 }

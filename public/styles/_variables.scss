@@ -1,45 +1,5 @@
 $font-family-montserrat: var(--montserrat), sans-serif;
-$font-family-nunito: var(--nunito), sans-serif;
 
-// ---
-// Colors.
-// Available via `var(--color-{COLOR_NAME})`.
-
-$color-white: #FFF;
 $color-black: #000;
-$color-deep-black:#0C0C0D;
-$color-medium-black: #161617;
-$color-soft-black: #1E1E1E;
-$color-grey:#919191;
-$color-pink:#9891E3;
-$color-green:#00C48C;
-$color-light-green:#B1F4CF;
-$color-error:#FF647C;
 
-// Transitions
-$transition-duration: 0.3s;
-$transition-timing-function: ease-out;
 
-// Z-INDEXES
-$ui-index--1: -1; // Для елементів для картинок бекграундів
-$ui-index-1: 1; // Для елементів, що наповзають, у загальному потоці
-$ui-index-2: 2; // Для елементів, що наповзають, у загальному потоці
-$ui-index-3: 3; // Для масок
-$ui-index-4: 4; // Для сайдбарів
-$ui-index-5: 5; // Для модалок
-$ui-index-6: 6; // Для елементів, перекривающіх усе
-
-// Hover for mouse device
-$mouse-device: '(hover: hover) and (pointer: fine)';
-
-// Border:
-$border-gold: 2px solid var(--color-golden-yellow);
-.modal {
-  position: fixed;
-  z-index: $ui-index-5;
-}
-
-.sidebar {
-  position: fixed;
-  z-index: $ui-index-4;
-}

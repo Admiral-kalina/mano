@@ -1,13 +1,8 @@
 'use client'
 import { FC, ReactNode, useEffect } from "react";
-
-//libraries
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 
-//components
-import { Container } from "@/components/Container/Container";
-import { Header } from "@/components/Header/Header";
 import { changeUserLanguage } from "@/features/userSlice/userSlice";
 
 interface MiddleLayoutProps {
@@ -15,7 +10,7 @@ interface MiddleLayoutProps {
 }
 
 
-export const MiddleLayout: FC<MiddleLayoutProps> = ({children}) => {
+export const LanguageLayer: FC<MiddleLayoutProps> = ({children}) => {
     const dispatch = useDispatch();
     const {preferredLanguage} = useSelector((store: RootState) => store.user);
 
@@ -28,10 +23,9 @@ export const MiddleLayout: FC<MiddleLayoutProps> = ({children}) => {
 
 
     return (
-        <Container>
-            <Header/>
-            {children}
-        </Container>
+      <>
+        {children}
+      </>
     );
 };
 

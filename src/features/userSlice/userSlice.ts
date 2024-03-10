@@ -14,7 +14,6 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         changeUserLanguage: (state, action: PayloadAction<string>) => {
-            console.log('action.payload', action.payload)
             state.preferredLanguage = action.payload;
             localStorage.setItem('preferredLanguage', action.payload)
         },

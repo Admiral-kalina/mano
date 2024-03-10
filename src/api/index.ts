@@ -1,18 +1,16 @@
-import { AxiosInstance } from "axios";
-
-import validationAxios from "./validationAxios";
-
+import axios from "./config";
 
 class Api {
-    private $axios: AxiosInstance;
-
-    constructor($axios:AxiosInstance) {
-        this.$axios = $axios
-    }
-
-    async get(endpoint:string) {
-        return this.$axios.get(endpoint)
+    async get(endpoint: string, params: any): Promise<any> {
+        try {
+            const response = await axios.get(endpoint, { params });
+            return response.data;
+        } catch (error) {
+            throw new Error("Failed to fetch data");
+        }
     }
 }
 
-export const validationApi = new Api(validationAxios);
+const apiInstance = new Api();
+
+export default apiInstance;

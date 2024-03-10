@@ -1,7 +1,12 @@
-//components
-import {Layout} from "@/layouts/Layout";
+'use client'
+import { Provider } from "react-redux";
+import { store } from "@/store/store";
+import { LanguageLayer } from "@/layers/LanguageLayer";
+import { ToastContainer } from "react-toastify"
 
-//styles
+import {Header} from "@/components/Header/Header";
+
+import 'react-toastify/dist/ReactToastify.css';
 import "./globals.scss";
 
 
@@ -13,9 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Layout>
-            {children}
-        </Layout>
+        <Provider store={store}>
+            <ToastContainer />
+            <LanguageLayer>
+                <Header/>
+                {children}
+            </LanguageLayer>
+        </Provider>
       </body>
     </html>
   );

@@ -1,8 +1,8 @@
 import * as Yup from "yup";
+import validationService from "@/services/validationService";
 
-type ValidateIBANType = (iban: string) => Promise<boolean | string>;
 
-export const paymentSchema = (validateIBAN:ValidateIBANType, maxAmount:number) => {
+export const paymentSchema = (maxAmount:number) => {
     return Yup.object().shape({
         amount: Yup.number()
             .min(0.01, 'Amount must be at least 0.01')
@@ -13,7 +13,7 @@ export const paymentSchema = (validateIBAN:ValidateIBANType, maxAmount:number) =
             'IBAN is not valid',
             async (value) => {
                 try {
-                    const isValid = await validateIBAN(value || '');
+                    const isValid = await validationService.validateIBAN(value);
                     return isValid === true;
                 } catch (error) {
                     return false;
