@@ -51,7 +51,7 @@
     background-color: #fff;
     border-radius: 4px;
     transition: border-color 0.3s;
-
+    display: flex;
     &:focus {
       border-color: #40a9ff;
       outline: 0;
