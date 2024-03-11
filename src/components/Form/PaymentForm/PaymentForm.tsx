@@ -85,7 +85,12 @@ export const PaymentForm = () => {
                                         key={account.id}
                                         value={account.iban}
                                     >
-                                        {account.iban} - Balance: {formatAmount(account.balance, preferredLanguage)}
+                                        <p>
+                                            {account.iban}
+                                        </p>
+                                        <p>
+                                             Balance: {formatAmount(account.balance, preferredLanguage)}
+                                        </p>
                                     </Option>
                                 ))}
                             </Field>

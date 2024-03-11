@@ -26,3 +26,18 @@ body {
   flex-direction: column;
   flex: 1 1;
 }
+
+.ant-select{
+  @media screen and (max-width: 768px){
+    height: fit-content!important;
+  }
+}
+
+.ant-select-selection-item{
+    display: flex!important;
+    column-gap: 5px;
+}
+
+.ant-select-selector{
+  display: none;
+}
