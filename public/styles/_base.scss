@@ -1,0 +1,28 @@
+@import "variables";
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Это важно: делает высоту body равной высоте видимого окна браузера */
+  display: flex;
+  overflow-x: hidden;
+  flex-direction: column;
+  font-family: $font-family-montserrat;
+  font-size: 16px;
+  background-color: $color-black;
+}
+
+.container{
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1020px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+}
