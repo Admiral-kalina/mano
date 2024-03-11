@@ -4,7 +4,7 @@ import { store } from "@/store/store";
 import { LanguageLayer } from "@/layers/LanguageLayer";
 import { ToastContainer } from "react-toastify"
 
-import {Header} from "@/components/Header/Header";
+import { Header } from "@/components/Header/Header";
 
 import 'react-toastify/dist/ReactToastify.css';
 import "./globals.scss";

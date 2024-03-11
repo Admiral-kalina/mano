@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 
-import LanguagesSelector from "@/components/Header/languagesSelector/languagesSelector";
+import { LanguagesSelector } from "@/components/Header/languagesSelector/languagesSelector";
 
 import styles from './header.module.scss';
 

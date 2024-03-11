@@ -1,6 +1,6 @@
 import React, { useState, useEffect, FC } from 'react';
-import { Input } from 'antd';
 import { FieldInputProps, FormikProps } from "formik";
+import { Input } from 'antd';
 
 import { formatAmount } from "@/utils/formatAmount";
 
@@ -11,7 +11,7 @@ interface AmountInputProps {
 }
 
 
-export const AmountInput:FC<AmountInputProps> = ({
+export const PriceInput:FC<AmountInputProps> = ({
  field,
  form,
  language,
@@ -50,17 +50,13 @@ export const AmountInput:FC<AmountInputProps> = ({
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const input = e.target.value;
-        // This pattern allows numbers, a single dot for decimal, and minus sign for negative numbers
         const validPattern = /^-?\d*\.?\d*$/;
 
-        // Check if the current input is valid
         if (validPattern.test(input)) {
             setDisplayValue(input);
         } else if (!input) {
-            // Allows clearing the input
             setDisplayValue('');
         }
-        // If the input is not valid, don't update the displayValue, effectively ignoring the input
     };
 
     return (

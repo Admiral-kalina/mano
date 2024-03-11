@@ -1,7 +1,7 @@
 export const formatAmount = (amount: number, language: string) => {
     const options = { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 };
 
-    const localeMap = {
+    const localeMap: { [key: string]: string } = {
         LT: 'lt-LT',
     };
 

@@ -1,24 +1,22 @@
 "use client"
-import React, {useState} from 'react';
-import {useSelector} from "react-redux";
-import {RootState} from '@/store/store';
-import {Formik, Form, Field, ErrorMessage} from 'formik';
-import {Input, Button, Select} from 'antd';
+import React, { useState } from 'react';
+import { useSelector } from "react-redux";
+import { RootState } from '@/store/store';
+import { Formik, Form, Field, ErrorMessage, FormikHelpers, FormikValues } from 'formik';
+import { Input, Button, Select } from 'antd';
+const { Option } = Select;
+import { toast } from "react-toastify";
 
-const {Option} = Select;
+import { PriceInput } from "@/components/Inputs/PriceInput/PriceInput";
+
+import { formatAmount } from "@/utils/formatAmount";
+import { paymentSchema } from "@/schemas/payment";
+
+import { payerAccounts } from "@/mockData/payerAccounts";
+
 import clsx from "clsx";
-
-import {AmountInput} from "@/components/Inputs/AmountInput/AmountInput";
-
-import {formatAmount} from "@/utils/formatAmount";
-import {paymentSchema} from "@/schemas/payment";
-
-import {payerAccounts} from "@/mockData/payerAccounts";
-
 import styles from './paymentForm.module.scss';
-import {toast} from "react-toastify";
 
-type SetFieldValue = (field: string, value: any, shouldValidate?: boolean) => void;
 
 export const PaymentForm = () => {
     const [selectedAccountBalance, setSelectedAccountBalance] = useState(payerAccounts.length > 0 ? payerAccounts[0].balance : 0);
@@ -42,7 +40,12 @@ export const PaymentForm = () => {
         setIsSubmitted(true);
     };
 
-    const handleAccountChange = (value: string, setFieldValue: SetFieldValue, setTouched, setErrors) => {
+    const handleAccountChange = (
+        value: string,
+        setFieldValue: FormikHelpers<FormikValues>['setFieldValue'],
+        setTouched: FormikHelpers<FormikValues>['setTouched'],
+        setErrors: FormikHelpers<FormikValues>['setErrors']
+    ) => {
         const selectedAccount = payerAccounts.find(account => account.iban === value);
         if (selectedAccount) {
             setFieldValue('payerAccount', selectedAccount, false);
@@ -103,7 +106,7 @@ export const PaymentForm = () => {
                             <label className={styles.label} htmlFor="amount">Amount</label>
                             <Field
                                 name="amount"
-                                component={AmountInput}
+                                component={PriceInput}
                                 language={preferredLanguage}
                                 disabled={isBalanceInsufficient}
                                 className={styles.field}
